@@ -7,6 +7,8 @@ import LandingPage from './landing-page';
 import Dashboard from './dashboard';
 import RegistrationPage from './registration-page';
 
+import '../styles/app.css';
+
 export class App extends React.Component {
   render() {
     return (

@@ -7,6 +7,8 @@ import * as serviceWorker from './serviceWorker';
 
 import App from './components/app';
 
+import './styles/index.css'
+
 ReactDOM.render(
     <Provider store={store}>
         <Router>
