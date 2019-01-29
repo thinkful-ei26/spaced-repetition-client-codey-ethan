@@ -18,5 +18,4 @@ const mapStateToProps = state => {
     return {};
 };
 
-// export default requiresLogin()(connect(mapStateToProps)(Dashboard));
-export default connect(mapStateToProps)(Dashboard)
+export default requiresLogin()(connect(mapStateToProps)(Dashboard));
