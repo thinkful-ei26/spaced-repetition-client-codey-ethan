@@ -13,23 +13,40 @@ export const fetchQuestionsError = error => ({
     error
 });
 
-export const SET_ANSWER_SUCCESS = 'SET_ANSWER_SUCCESS';
-export const setAnswerSuccess = answer => ({
-    type: SET_ANSWER_SUCCESS,
-    answer
-});
+export const SET_STATUS_CORRECT = 'SET_STATUS_CORRECT';
+export const setStatusCorrect = () => ({
+    type: SET_STATUS_CORRECT
+})
+
+export const SET_STATUS_INCORRECT = 'SET_STATUS_INCORRECT';
+export const setStatusIncorrect = () => ({
+    type: SET_STATUS_INCORRECT
+})
+
+export const RESET_STATUS = 'RESET_STATUS';
+export const resetStatus = () => ({
+    type: RESET_STATUS
+})
+
+export const INCREMENT_SCORE = 'INCREMENT_SCORE';
+export const incrementScore = () => ({
+    type: INCREMENT_SCORE
+})
 
 
 export const fetchQuestions = () => (dispatch, getState) => {
+    const authToken = getState().auth.authToken;
     return fetch(`${API_BASE_URL}/questions`, {
         method: 'GET',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${authToken}`
         }
     })
         .then(res => normalizeResponseErrors(res))
         .then(res => res.json())
         .then(res => {
+            console.log(res)
             dispatch(fetchQuestionsSuccess(res)
         )})
         .catch(err => {

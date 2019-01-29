@@ -2,11 +2,10 @@ import React from 'react';
 import {Field, reduxForm, focus} from 'redux-form';
 import Input from './input';
 import {required, nonEmpty} from '../validators';
-import { setAnswerSuccess } from '../actions/questions';
 
 export class QuestionForm extends React.Component {
     onSubmit(value) {
-        this.props.dispatch(setAnswerSuccess(value.answer));
+        this.props.handleAnswer(value);
     }
 
     render() {
@@ -43,5 +42,5 @@ export class QuestionForm extends React.Component {
 
 export default reduxForm({
     form: 'question',
-    onSubmitFail: (errors, dispatch) => dispatch(focus('question', 'uanswer'))
+    onSubmitFail: (errors, dispatch) => dispatch(focus('question', 'answer'))
 })(QuestionForm);

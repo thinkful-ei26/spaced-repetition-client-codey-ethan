@@ -1,12 +1,16 @@
 import {
     FETCH_QUESTIONS_SUCCESS,
     FETCH_QUESTIONS_ERROR,
-    SET_ANSWER_SUCCESS
+    SET_STATUS_CORRECT,
+    SET_STATUS_INCORRECT,
+    RESET_STATUS,
+    INCREMENT_SCORE
 } from '../actions/questions';
 
 const initialState = {
     data: [{}],
-    answer: null,
+    status: null,
+    score: 0,
     error: null
 }
 
@@ -21,10 +25,25 @@ export default function reducer(state = initialState, action) {
             error: action.error        
         });
     }
-    else if (action.type === SET_ANSWER_SUCCESS) {
+    else if (action.type === SET_STATUS_CORRECT) {
         return Object.assign({}, state, {
-            answer: action.answer
-        })
+            status: 'correct'        
+        });
+    }
+    else if (action.type === SET_STATUS_INCORRECT) {
+        return Object.assign({}, state, {
+            status: 'incorrect'        
+        });
+    }
+    else if (action.type === RESET_STATUS) {
+        return Object.assign({}, state, {
+            status: null        
+        });
+    }
+    if (action.type === INCREMENT_SCORE) {
+        return Object.assign({}, state, {
+            score: state.score + 1
+        });
     }
     return state;
 }
