@@ -29,7 +29,7 @@ export class Question extends React.Component {
     }
     
     render() {
-        console.log(this.props.questions)
+        // console.log(this.props.questions)
         let status;
         let form = (
             <QuestionForm handleAnswer={(value) => this.handleAnswer(value)}/>
