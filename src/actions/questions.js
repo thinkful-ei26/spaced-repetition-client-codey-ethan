@@ -33,6 +33,16 @@ export const incrementScore = () => ({
     type: INCREMENT_SCORE
 })
 
+export const POST_ANSWER_SUCCESS = 'POST_ANSWER_SUCCESS';
+export const postAnswerSuccess = () => ({
+    type: POST_ANSWER_SUCCESS
+})
+
+export const POST_ANSWER_ERROR = 'POST_ANSWER_ERROR';
+export const postAnswerError = error => ({
+    type: POST_ANSWER_ERROR,
+    error
+})
 
 export const fetchQuestions = () => (dispatch, getState) => {
     const authToken = getState().auth.authToken;
@@ -43,14 +53,39 @@ export const fetchQuestions = () => (dispatch, getState) => {
             Authorization: `Bearer ${authToken}`
         }
     })
-        .then(res => normalizeResponseErrors(res))
-        .then(res => res.json())
-        .then(res => {
-            console.log(res)
-            dispatch(fetchQuestionsSuccess(res)
-        )})
-        .catch(err => {
-            dispatch(fetchQuestionsError(err));
-        });
+    .then(res => normalizeResponseErrors(res))
+    .then(res => res.json())
+    .then(res => {
+        dispatch(fetchQuestionsSuccess(res)
+    )})
+    .catch(err => {
+        dispatch(fetchQuestionsError(err));
+    });
 };
 
+export const postAnswer = (word, memoryStrength, correct, next, currentHead) => (dispatch, getState) => {
+    console.log(word, memoryStrength, correct)
+    const authToken = getState().auth.authToken;
+    return fetch(`${API_BASE_URL}/questions`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${authToken}`
+        },
+        body: JSON.stringify({
+            word,
+            memoryStrength,
+            correct,
+            next,
+            currentHead
+        })
+    })
+    .then(res => normalizeResponseErrors(res))
+    .then(res => res.json())
+    .then(res => {
+        dispatch(postAnswerSuccess(res)
+    )})
+    .catch(err => {
+        dispatch(postAnswerError(err));
+    });
+}

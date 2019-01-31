@@ -4,7 +4,8 @@ import {
     SET_STATUS_CORRECT,
     SET_STATUS_INCORRECT,
     RESET_STATUS,
-    INCREMENT_SCORE
+    INCREMENT_SCORE,
+    POST_ANSWER_ERROR
 } from '../actions/questions';
 
 const initialState = {
@@ -16,11 +17,17 @@ const initialState = {
 
 export default function reducer(state = initialState, action) {
     if (action.type === FETCH_QUESTIONS_SUCCESS) {
+        console.log(action)
         return Object.assign({}, state, {
             data: action.questions
         });
     }
     else if (action.type === FETCH_QUESTIONS_ERROR) {
+        return Object.assign({}, state, {
+            error: action.error        
+        });
+    }
+    else if (action.type === POST_ANSWER_ERROR) {
         return Object.assign({}, state, {
             error: action.error        
         });

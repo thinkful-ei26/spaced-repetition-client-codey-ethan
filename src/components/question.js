@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 
 import QuestionForm from './question-form';
 
-import {fetchQuestions, setStatusCorrect, setStatusIncorrect, resetStatus, incrementScore} from '../actions/questions';
+import {fetchQuestions, setStatusCorrect, setStatusIncorrect, resetStatus, incrementScore, postAnswer} from '../actions/questions';
 
 export class Question extends React.Component {
     componentDidMount() {
@@ -17,16 +17,19 @@ export class Question extends React.Component {
 
     handleAnswer(value) {
         if(value.answer === this.props.questions.answer) {
+            this.props.dispatch(postAnswer(this.props.questions.word, this.props.questions.memoryStrength, true, this.props.questions.next, this.props.questions.currentHead));
             this.props.dispatch(setStatusCorrect());
             this.props.dispatch(incrementScore());
+
         }
         else {
-             this.props.dispatch(setStatusIncorrect());
+            this.props.dispatch(postAnswer(this.props.questions.word, this.props.questions.memoryStrength, false, this.props.questions.next, this.props.questions.currentHead));
+            this.props.dispatch(setStatusIncorrect());
         }
     }
     
     render() {
-        console.log(this.props.score)
+        console.log(this.props.questions)
         let status;
         let form = (
             <QuestionForm handleAnswer={(value) => this.handleAnswer(value)}/>
@@ -65,6 +68,7 @@ export class Question extends React.Component {
 const mapStateToProps = state => {
     return {
         questions: state.questions.data,
+        currentHead: state.questions.currentHead,
         status: state.questions.status,
         score: state.questions.score
     };
