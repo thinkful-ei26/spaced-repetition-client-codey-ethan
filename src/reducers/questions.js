@@ -12,6 +12,8 @@ const initialState = {
     data: [{}],
     status: null,
     score: 0,
+    numberOfAnswers: 0,
+    numberOfCorrectAnswers: 0,
     error: null
 }
 
@@ -34,12 +36,15 @@ export default function reducer(state = initialState, action) {
     }
     else if (action.type === SET_STATUS_CORRECT) {
         return Object.assign({}, state, {
-            status: 'correct'        
+            status: 'correct',
+            numberOfAnswers: state.numberOfAnswers + 1,
+            numberOfCorrectAnswers: state.numberOfCorrectAnswers + 1        
         });
     }
     else if (action.type === SET_STATUS_INCORRECT) {
         return Object.assign({}, state, {
-            status: 'incorrect'        
+            status: 'incorrect', 
+            numberOfAnswers: state.numberOfAnswers + 1       
         });
     }
     else if (action.type === RESET_STATUS) {

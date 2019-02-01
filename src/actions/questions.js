@@ -63,9 +63,8 @@ export const fetchQuestions = () => (dispatch, getState) => {
     });
 };
 
-export const postAnswer = (word, memoryStrength, correct, nextWord, currentHead, answer) => (dispatch, getState) => {
+export const postAnswer = (answer) => (dispatch, getState) => {
     const authToken = getState().auth.authToken;
-    // const head = getState().auth.currentUser.head;
     return fetch(`${API_BASE_URL}/questions`, {
         method: 'PUT',
         headers: {
@@ -73,19 +72,12 @@ export const postAnswer = (word, memoryStrength, correct, nextWord, currentHead,
             Authorization: `Bearer ${authToken}`
         },
         body: JSON.stringify({
-            word,
-            memoryStrength,
-            correct,
-            nextWord,
-            // head,
-            currentHead, 
             answer
         })
     })
     .then(res => normalizeResponseErrors(res))
     .then(res => res.json())
     .then(res => {
-        //console.log('Client', res)
         dispatch(postAnswerSuccess(res)
     )})
     .catch(err => {
