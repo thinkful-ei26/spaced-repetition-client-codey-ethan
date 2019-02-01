@@ -12,6 +12,7 @@ export function LandingPage(props) {
     return (
         <div className="container">
             <h2>Sign In</h2>
+            <p>this app is used for learning spanish. Just type in the correct answer when prompted with a spanish word.</p>
             <LoginForm />
             <Link to="/register">Register</Link>
         </div>

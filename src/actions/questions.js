@@ -85,7 +85,7 @@ export const postAnswer = (word, memoryStrength, correct, nextWord, currentHead,
     .then(res => normalizeResponseErrors(res))
     .then(res => res.json())
     .then(res => {
-        console.log('Client', res)
+        //console.log('Client', res)
         dispatch(postAnswerSuccess(res)
     )})
     .catch(err => {

@@ -1,35 +1,35 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-export function NavBar(props) {
-    let status;
-    if (props.loggedIn) {
-        return (
-            status = (
-                <div>
-                    SpanishX
-                    <button onClick={() => console.log('logout')}>logout</button>
-                </div>  
-            )
-        )
-    }
-    else if (!props.loggedIn) {
-        return (
-            status = (
-                <div>
-                    SpanishX
-                    <button onClick={() => console.log('login')}>login</button>
-                </div>
-            )
-        )
-    }
+import {clearAuth} from '../actions/auth';
 
-    return (
-        <div className="nav">
-            {status}
-        </div>
-    );
-    
+export class NavBar extends React.Component {
+    render() {
+        let status;
+        if (this.props.loggedIn) {
+            return (
+                status = (
+                    <div>
+                        SpanishX
+                        <button onClick={() => { 
+                            this.props.dispatch(clearAuth());
+                            localStorage.removeItem('authToken');
+                        }}>logout</button>
+                    </div>  
+                )
+            )
+        }
+        else if (!this.props.loggedIn) {
+            return (
+                status = (<div></div>)
+            )
+        }
+        return (
+            <div className="nav">
+                {status}
+            </div>
+        )
+    }
 }
 
 const mapStateToProps = state => {
