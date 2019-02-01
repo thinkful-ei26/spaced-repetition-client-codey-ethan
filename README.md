@@ -12,7 +12,9 @@ The server app is deployed on Heroku at https://srs-codey-ethan.herokuapp.com/ a
 The app presents users with a sequence of words, so that they can practice and improve their Spanish language skills. The order of the words changes based on past answer history based on a spaced repetition algorithm.
 
 ### Techonologies
-The server side of this project uses
- * Node with Express to handle routing
- * A MongoDB database hosted on mLab, with Mongoose for schema design and communicating with MongoDB
+The client side of this project uses
+ * React
+ * Redux for state management
+    * ReduxForm for form management
+    * Thunk for asynchronous request management
  * Passport with JWT to handle user authentication
