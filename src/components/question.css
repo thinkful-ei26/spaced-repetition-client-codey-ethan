@@ -1,0 +1,35 @@
+.score {
+    padding: 2vh;
+}
+
+.response {
+    padding: 2vh;
+}
+
+.word {
+    margin: 2vh;
+}
+
+.form-correct, .form-incorrect {
+    display: inline;
+}
+
+.progress-btn {
+    padding: 2vh;
+}
+
+.gif {
+    min-width: 30vw;
+    max-width: 40vw;
+    min-height: 30vh;
+    max-height: 40vh;
+}
+
+@media only screen and (min-width: 768px) {
+    .gif {
+        min-width: 10vw;
+        max-width: 20vw;
+        min-height: 10vh;
+        max-height: 20vh;
+    }
+}

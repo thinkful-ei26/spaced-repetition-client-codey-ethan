@@ -2,6 +2,10 @@ body {
     color: white;
 }
 
+.dashboard-header {
+    background-color: #3F69AA;
+}
+
 .container {
     margin: 0 auto;
     text-align: center;
@@ -32,11 +36,14 @@ input {
     width: 80vw;
 }
 
+nav {
+    background-color: #3F69AA;
+}
+
 @media only screen and (min-width: 768px) {
     .container {
         width: 45vw;
-        height: 40vh;
-        margin-top: 25vh;
+        margin-top: 10vh;
     }
     input {
         padding: 1vw;

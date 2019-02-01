@@ -3,25 +3,31 @@ import {connect} from 'react-redux';
 
 import {clearAuth} from '../actions/auth';
 
+import './nav-bar.css'
+
 export class NavBar extends React.Component {
     render() {
         let status;
         if (this.props.loggedIn) {
             return (
                 status = (
-                    <div>
+                    <nav role="navigation">
                         SpanishX
-                        <button onClick={() => { 
+                        <button className="auth-button" onClick={() => { 
                             this.props.dispatch(clearAuth());
                             localStorage.removeItem('authToken');
                         }}>logout</button>
-                    </div>  
+                    </nav>  
                 )
             )
         }
         else if (!this.props.loggedIn) {
             return (
-                status = (<div></div>)
+                status = (
+                    <nav role="navigation">
+                        SpanishX
+                    </nav> 
+                )
             )
         }
         return (

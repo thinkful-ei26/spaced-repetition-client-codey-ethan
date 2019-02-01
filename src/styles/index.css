@@ -6,6 +6,7 @@ body {
 	background-color: white;
 	background-image: linear-gradient(to bottom right, white, #f8f6ec);
 	height: -webkit-fill-available;
+	margin: 0;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 

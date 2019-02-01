@@ -44,6 +44,23 @@ export const postAnswerError = error => ({
     error
 })
 
+export const FETCH_PROGRESS_SUCCESS = 'FETCH_PROGRESS_SUCCESS';
+export const fetchProgressSuccess = progress => ({
+    type: FETCH_PROGRESS_SUCCESS,
+    progress
+})
+
+export const FETCH_PROGRESS_ERROR = 'FETCH_PROGRESS_ERROR';
+export const fetchProgressError = error => ({
+    type: FETCH_PROGRESS_ERROR,
+    error
+})
+
+export const TOGGLE_PROGRESS = 'TOGGLE_PROGRESS';
+export const toggleProgress = () => ({
+    type: TOGGLE_PROGRESS,
+})
+
 export const fetchQuestions = () => (dispatch, getState) => {
     const authToken = getState().auth.authToken;
     return fetch(`${API_BASE_URL}/questions`, {
@@ -77,10 +94,29 @@ export const postAnswer = (answer) => (dispatch, getState) => {
     })
     .then(res => normalizeResponseErrors(res))
     .then(res => res.json())
-    .then(res => {
-        dispatch(postAnswerSuccess(res)
+    .then(() => {
+        dispatch(postAnswerSuccess()
     )})
     .catch(err => {
         dispatch(postAnswerError(err));
+    });
+}
+
+export const fetchProgress = () => (dispatch, getState) => {
+    const authToken = getState().auth.authToken;
+    return fetch(`${API_BASE_URL}/questions/progress`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${authToken}`
+        }
+    })
+    .then(res => normalizeResponseErrors(res))
+    .then(res => res.json())
+    .then((res) => {
+        dispatch(fetchProgressSuccess(res)
+    )})
+    .catch(err => {
+        dispatch(fetchProgressError(err));
     });
 }

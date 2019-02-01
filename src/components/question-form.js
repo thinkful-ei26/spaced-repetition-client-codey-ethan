@@ -3,6 +3,8 @@ import {Field, reduxForm, focus} from 'redux-form';
 import Input from './input';
 import {required, nonEmpty} from '../validators';
 
+import './form.css';
+
 export class QuestionForm extends React.Component {
     onSubmit(value) {
         this.props.handleAnswer(value);
