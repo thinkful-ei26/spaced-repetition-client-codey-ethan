@@ -63,9 +63,9 @@ export const fetchQuestions = () => (dispatch, getState) => {
     });
 };
 
-export const postAnswer = (word, memoryStrength, correct, nextWord) => (dispatch, getState) => {
+export const postAnswer = (word, memoryStrength, correct, nextWord, currentHead, answer) => (dispatch, getState) => {
     const authToken = getState().auth.authToken;
-    const head = getState().auth.currentUser.head;
+    // const head = getState().auth.currentUser.head;
     return fetch(`${API_BASE_URL}/questions`, {
         method: 'PUT',
         headers: {
@@ -77,7 +77,9 @@ export const postAnswer = (word, memoryStrength, correct, nextWord) => (dispatch
             memoryStrength,
             correct,
             nextWord,
-            head
+            // head,
+            currentHead, 
+            answer
         })
     })
     .then(res => normalizeResponseErrors(res))

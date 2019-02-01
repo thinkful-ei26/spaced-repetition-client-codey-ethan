@@ -17,13 +17,13 @@ export class Question extends React.Component {
 
     handleAnswer(value) {
         if(value.answer === this.props.questions.answer) {
-            this.props.dispatch(postAnswer(this.props.questions.word, this.props.questions.memoryStrength, true, this.props.questions.next, this.props.questions.currentHead));
+            this.props.dispatch(postAnswer(this.props.questions.word, this.props.questions.memoryStrength, true, this.props.questions.next, this.props.questions.currentHead, value.answer));
             this.props.dispatch(setStatusCorrect());
             this.props.dispatch(incrementScore());
 
         }
         else {
-            this.props.dispatch(postAnswer(this.props.questions.word, this.props.questions.memoryStrength, false, this.props.questions.next, this.props.questions.currentHead));
+            this.props.dispatch(postAnswer(this.props.questions.word, this.props.questions.memoryStrength, false, this.props.questions.next, this.props.questions.currentHead, value.answer));
             this.props.dispatch(setStatusIncorrect());
         }
     }
@@ -68,7 +68,7 @@ export class Question extends React.Component {
 const mapStateToProps = state => {
     return {
         questions: state.questions.data,
-        currentHead: state.questions.currentHead,
+        // currentHead: state.questions.currentHead,
         status: state.questions.status,
         score: state.questions.score
     };
