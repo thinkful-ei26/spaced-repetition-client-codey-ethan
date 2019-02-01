@@ -19,17 +19,17 @@
 }
 
 .gif {
-    min-width: 30vw;
-    max-width: 40vw;
-    min-height: 30vh;
-    max-height: 40vh;
+    min-width: 50vw;
+    min-height: 50vh;
+    max-width: 60vw;
+    max-height: 60vh;
 }
 
 @media only screen and (min-width: 768px) {
     .gif {
-        min-width: 10vw;
-        max-width: 20vw;
-        min-height: 10vh;
-        max-height: 20vh;
+        min-width: 30vw;
+        min-height: 30vh;
+        max-width: 40vw;
+        max-height: 40vh;
     }
 }
