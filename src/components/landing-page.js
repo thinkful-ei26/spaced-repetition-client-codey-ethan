@@ -12,7 +12,7 @@ export function LandingPage(props) {
     return (
         <div className="container">
             <h2>Sign In</h2>
-            <p>this app is used for learning spanish. Just type in the correct answer when prompted with a spanish word.</p>
+            <p>SpanishX presents users with a sequence of words, so that they can practice and improve their Spanish language skills. The order of the words changes based on past answer history. Just enter the English word for each Spanish word to get going.</p>
             <LoginForm />
             <Link to="/register">Register</Link>
         </div>
