@@ -1,6 +1,6 @@
 # SpanishX
 
-This is the server repo for SpanishX, a spaced repetition learning app for the Spanish language.
+This is the client repo for SpanishX, a spaced repetition learning app for the Spanish language.
 
 ### Deployment
 
