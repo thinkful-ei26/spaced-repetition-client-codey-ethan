@@ -1,20 +1,89 @@
-# SpanishX
+# [SpanishX](https://spaced-repetition-codey-ethan.herokuapp.com)
 
-This is the client repo for SpanishX, a spaced repetition learning app for the Spanish language.
+## Welcome to SpanishX
+SpanishX provides a simple and intuitive Spanish language learning experience based on the spaced repetition learning method. It asks you to define a word, then provides feedback and shows you the next word based on your previous answer history. Come to learn Spanish, stay for the GIFs!
 
-### Deployment
+## App Screenshots
 
-The client is deployed at https://spaced-repetition-codey-ethan.herokuapp.com/ 
+## Tech Specs: 
+**Front-end:**
+- React
+- Redux
+- Javascript
+- HTML5
 
-The server app is deployed on Heroku at https://srs-codey-ethan.herokuapp.com/ and the server repo can be found at https://github.com/thinkful-ei26/spaced-repetition-server-codey-ethan
+**Back-end**
+- Node
+- Express
+- MongoDB hosted on mLab
+- JWT 
+- Passport
 
-### App
-The app presents users with a sequence of words, so that they can practice and improve their Spanish language skills. The order of the words changes based on past answer history based on a spaced repetition algorithm.
+## Links
+[Client Repo](https://github.com/thinkful-ei26/spaced-repetition-client-codey-ethan)
 
-### Techonologies
-The client side of this project uses
- * React
- * Redux for state management
-    * ReduxForm for form management
-    * Thunk for asynchronous request management
- * Passport with JWT to handle user authentication
+[Deployed Server On Heroku](https://srs-codey-ethan.herokuapp.com/)
+
+[Deployed Client On Heroku](https://spaced-repetition-codey-ethan.herokuapp.com/)
+
+
+## Schema
+### User
+```
+{
+  fullname: {
+    type: String,
+    required: true
+  },
+  username: {
+    type: String,
+    required: true,
+    unique: true
+  },
+  password: {
+    type: String,
+    required: true
+  },
+  questions: [
+    {
+      _id: mongoose.Schema.Types.ObjectId,
+      word: String,
+      answer: String,
+      memoryStrength: {
+        type: Number, 
+        default: 1
+      },
+      next: Number,
+      numberOfAnswers: {
+        type: Number, 
+        default: 0
+      },
+      numberOfCorrectAnswers: {
+        type: Number, 
+        default: 0
+      },
+    }
+  ],
+  head: {
+    type: Number,
+    default: 0
+  }
+}
+```
+
+## API Overview
+```        
+/api
+.
+├── /auth
+│   └── POST
+│       ├── /login
+│       ├── /refresh
+├── /users
+│   └── POST /
+├── /questions
+│   └── GET 
+│       ├── /
+│       ├── /progress
+│   └── PUT /
+```
