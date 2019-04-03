@@ -22,6 +22,9 @@ SpanishX provides a simple and intuitive Spanish language learning experience ba
 
 ## Links
 [Client Repo](https://github.com/thinkful-ei26/spaced-repetition-client-codey-ethan)
+### Demo Account
+Username: demo
+Password: password123
 
 [Deployed Server On Heroku](https://srs-codey-ethan.herokuapp.com/)
 
