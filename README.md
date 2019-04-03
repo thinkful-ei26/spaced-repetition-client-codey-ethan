@@ -4,6 +4,7 @@
 SpanishX provides a simple and intuitive Spanish language learning experience based on the spaced repetition learning method. It asks you to define a word, then provides feedback and shows you the next word based on your previous answer history. Come to learn Spanish, stay for the GIFs!
 
 ## App Screenshots
+![Device Screenshots](https://github.com/thinkful-ei26/spaced-repetition-client-codey-ethan/blob/master/spanishx-mockup.png)
 
 ## Tech Specs: 
 **Front-end:**
