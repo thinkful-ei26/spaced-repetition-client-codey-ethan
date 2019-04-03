@@ -1,4 +1,4 @@
-# [SpanishX](https://spaced-repetition-codey-ethan.herokuapp.com)
+# [SpanishX](https://spanish-x.herokuapp.com/)
 
 ## Welcome to SpanishX
 SpanishX provides a simple and intuitive Spanish language learning experience based on the spaced repetition learning method. It asks you to define a word, then provides feedback and shows you the next word based on your previous answer history. Come to learn Spanish, stay for the GIFs!
@@ -25,7 +25,7 @@ SpanishX provides a simple and intuitive Spanish language learning experience ba
 
 [Deployed Server On Heroku](https://srs-codey-ethan.herokuapp.com/)
 
-[Deployed Client On Heroku](https://spaced-repetition-codey-ethan.herokuapp.com/)
+[Deployed Client On Heroku](https://spanish-x.herokuapp.com/)
 
 
 ## Schema
