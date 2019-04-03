@@ -20,6 +20,11 @@ button {
     border: 1px solid #3F69AA;
 }
 
+button:hover, button:focus {
+    color: #3F69AA;
+    background-color: white
+}
+
 input {
     margin-bottom: 1vh;
     padding: 4vw;
@@ -43,6 +48,20 @@ nav {
 @media only screen and (min-width: 768px) {
     .container {
         width: 45vw;
+        margin-top: 10vh;
+    }
+    input {
+        padding: 1vw;
+        width: 20vw;
+    }
+    .form-error {
+        padding: 1vw;
+        width: 20vw;
+    }
+}
+
+@media only screen and (max-width: 570px) {
+    .container {
         margin-top: 10vh;
     }
     input {

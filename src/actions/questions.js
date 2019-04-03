@@ -104,7 +104,7 @@ export const postAnswer = (answer) => (dispatch, getState) => {
 
 export const fetchProgress = () => (dispatch, getState) => {
     const authToken = getState().auth.authToken;
-    console.log('fetchProgress token: ', authToken)
+    // console.log('fetchProgress token: ', authToken)
     return fetch(`${API_BASE_URL}/questions/progress`, {
         method: 'GET',
         headers: {
@@ -115,7 +115,7 @@ export const fetchProgress = () => (dispatch, getState) => {
     .then(res => normalizeResponseErrors(res))
     .then(res => res.json())
     .then((res) => {
-        console.log('fetchProgress res: ', res)
+        // console.log('fetchProgress res: ', res)
         dispatch(fetchProgressSuccess(res)
     )})
     .catch(err => {

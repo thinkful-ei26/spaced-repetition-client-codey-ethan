@@ -16,7 +16,7 @@ export class NavBar extends React.Component {
                         <button className="auth-button" onClick={() => { 
                             this.props.dispatch(clearAuth());
                             localStorage.removeItem('authToken');
-                        }}>logout</button>
+                        }}>Log Out</button>
                     </nav>  
                 )
             )

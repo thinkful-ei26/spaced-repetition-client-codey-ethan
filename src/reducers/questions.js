@@ -58,7 +58,6 @@ export default function reducer(state = initialState, action) {
         });
     }
     else if (action.type === FETCH_PROGRESS_SUCCESS) {
-        console.log('fetchProgress reducer: ', action)
         return Object.assign({}, state, {
             progress: action.progress
         })

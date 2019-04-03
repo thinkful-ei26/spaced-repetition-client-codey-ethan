@@ -37,9 +37,7 @@ export class Question extends React.Component {
         }
     }
     
-    render() {
-        console.log('question.js: ', this.props)
-        
+    render() {        
         const incorrectGifs = ["https://i.makeagif.com/media/11-20-2015/hTMHqC.gif", "https://78.media.tumblr.com/b7367787d4e83fa43bff40553298cf1d/tumblr_mjf3h2B4WG1qcepzco4_r1_250.gif", "https://media.giphy.com/media/fM4iQFyuHeoJW/giphy.gif"]
         const correctGifs = ["https://media.giphy.com/media/JrjNe1zbLYd3y/giphy.gif", "https://media.giphy.com/media/sxjczRKltBE9G/giphy.gif", "http://33.media.tumblr.com/20ebb47c81ba159ee7f46f9e3c2f8662/tumblr_mnj7bgPeMT1sqghjko2_250.gif"]
         let incorrect = incorrectGifs[Math.floor(Math.random() * incorrectGifs.length)]
@@ -51,7 +49,7 @@ export class Question extends React.Component {
         );
         if (this.props.status) {
             form = (
-                <button onClick={() => this.nextQuestion()}>next</button>
+                <button onClick={() => this.nextQuestion()}>Next</button>
             )
         }
         if (this.props.status === 'correct') {
